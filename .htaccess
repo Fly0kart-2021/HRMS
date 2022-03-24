@@ -1,0 +1,11 @@
+RewriteEngine on
+RewriteCond $1 !^(index\.php|resources|robots\.txt)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L,QSA]
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-SSL} !on
+RewriteCond %{HTTP_HOST} ^hrms\.thetechcubes\.in$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.hrms\.thetechcubes\.in$
+RewriteRule ^/?$ "https\:\/\/hrms\.thetechcubes\.in" [R=301,L]
+
