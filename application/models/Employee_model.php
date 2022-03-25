@@ -345,6 +345,9 @@ public function getlastid()
   $code= $result->em_code;
   $c=array();
   $c=explode('C',$code);
+  if(!isset($c[1])){
+    $c[1] = null;
+  }
   $code=$c[1]+1;
   return "TTC".$code;
 
