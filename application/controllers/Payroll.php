@@ -82,7 +82,8 @@
                         $success = $this->payroll_model->Add_typeInfo($data);
                         #redirect("leave/Holidays");
                         #$this->session->set_flashdata('feedback','Successfully Added');
-                        echo "Successfully Added";
+                          echo '<script>alert("Successfully Added.")</script>'
+                redirect(base_url(), 'refresh');
                     } else {
                         $success = $this->payroll_model->Update_typeInfo($id, $data);
                         echo '<script>alert("Successfully Added")</script>';
@@ -172,7 +173,8 @@
                         $success = $this->payroll_model->insert_Salary_Pay($data);
                         if (empty($loanid)) {
                             #$loaninfo = $this->payroll_model->GetloanInfo($emid);
-                            echo "Successfully Added";
+                              echo '<script>alert("Successfully Added.")</script>'
+                redirect(base_url(), 'refresh');
                         } else {
                             $loanvalue = $this->loan_model->GetLoanValuebyLId($loanid);
                             #$loaninfo = $this->payroll_model->GetloanInfo($emid);
@@ -210,10 +212,12 @@
                                 echo "Successfully added But your Loan number is not available";
                             }
                         }
-                        echo "Successfully Added";
+                          echo '<script>alert("Successfully Added.")</script>'
+                redirect(base_url(), 'refresh');
                     } else {
                         $success = $this->payroll_model->Update_SalaryPayInfo($id, $data);
-                        echo "Successfully Updated";
+                          echo '<script>alert("Successfully Updated.")</script>'
+                redirect(base_url(), 'refresh');
                     }
                 }
             } else {
@@ -255,11 +259,13 @@
                     if (!empty($sid)) {
                         $success = $this->employee_model->Update_Salary($sid, $data);
                         #$this->session->set_flashdata('feedback','Successfully Updated');
-                        #echo "Successfully Updated";
+                        #  echo '<script>alert("Successfully Updated.")</script>'
+                redirect(base_url(), 'refresh');
                         #$success = $this->employee_model->Add_Salary($data);
                         $insertId = $this->db->insert_id();
                         #$this->session->set_flashdata('feedback','Successfully Added');
-                        #echo "Successfully Added";
+                        #  echo '<script>alert("Successfully Added.")</script>'
+                redirect(base_url(), 'refresh');
                         $data1 = array();
                         $data1 = array(
                             'salary_id' => $sid,
@@ -277,12 +283,14 @@
                             'others' => $others
                         );
                         $success = $this->employee_model->Update_Deduction($did, $data2);
-                        echo "Successfully Updated";
+                          echo '<script>alert("Successfully Updated.")</script>'
+                redirect(base_url(), 'refresh');
                     } else {
                         $success = $this->employee_model->Add_Salary($data);
                         $insertId = $this->db->insert_id();
                         #$this->session->set_flashdata('feedback','Successfully Added');
-                        #echo "Successfully Added";
+                        #  echo '<script>alert("Successfully Added.")</script>'
+                redirect(base_url(), 'refresh');
                         $data1 = array();
                         $data1 = array(
                             'salary_id' => $insertId,
@@ -300,7 +308,8 @@
                             'others' => $others
                         );
                         $success = $this->employee_model->Add_Deduction($data2);
-                        echo "Successfully Added";
+                          echo '<script>alert("Successfully Added.")</script>'
+                redirect(base_url(), 'refresh');
                     }
                 }
             } else {
@@ -1020,7 +1029,8 @@
                             }
                         }
 
-                        echo "Successfully added";
+                          echo '<script>alert("Successfully Added.")</script>'
+                redirect(base_url(), 'refresh');
                     }
                 } else {
                     $success = $this->payroll_model->insertPaidSalaryData($data);
@@ -1071,7 +1081,8 @@
                             $success_loan = $this->loan_model->update_LoanData($loan_id, $data);
                         }
 
-                        echo "Successfully added";
+                          echo '<script>alert("Successfully Added.")</script>'
+                redirect(base_url(), 'refresh');
                     }
                 }
             } else {

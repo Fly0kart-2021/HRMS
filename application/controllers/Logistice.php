@@ -64,12 +64,14 @@ class Logistice extends CI_Controller {
                 $success = $this->logistic_model->Add_LogisticeData($data);
                 #$this->session->set_flashdata('feedback','Successfully Added');
                 #redirect("loan/View");
-                echo "Successfully Added";
+                  echo '<script>alert("Successfully Added.")</script>'
+                redirect(base_url(), 'refresh');
             } else {
                 $success = $this->logistic_model->Update_LogisticeData($id,$data);
                 #$this->session->set_flashdata('feedback','Successfully Updated');
                 #redirect("loan/View");
-                echo "Successfully Updated";
+                  echo '<script>alert("Successfully Updated.")</script>'
+                redirect(base_url(), 'refresh');
             }
                        
         }
@@ -116,7 +118,8 @@ class Logistice extends CI_Controller {
                 $success = $this->logistic_model->Add_LogisticeSupport($data);
                 #$this->session->set_flashdata('feedback','Successfully Added');
                 #redirect("loan/View");
-                #echo "Successfully Added";
+                #  echo '<script>alert("Successfully Added.")</script>'
+                redirect(base_url(), 'refresh');
                 $assets = $this->logistic_model->getAssetsQty($logid);
                 $inqty = $assets->in_stock - $assignqty;
                 $data = array();
@@ -124,7 +127,8 @@ class Logistice extends CI_Controller {
                     'in_stock' => $inqty
                 ); 
                 $this->logistic_model->Update_Assets($logid,$data);
-                 echo "Successfully Updated";
+                   echo '<script>alert("Successfully Updated.")</script>'
+                redirect(base_url(), 'refresh');
             } else {
                 $success = $this->logistic_model->Update_LogisticeSupport($id,$data);
                 $assets = $this->logistic_model->getAssetsQty($logid);
@@ -134,7 +138,8 @@ class Logistice extends CI_Controller {
                     'in_stock' => $inqty
                 ); 
                 $this->logistic_model->Update_Assets($logid,$data);
-                 echo "Successfully Updated";
+                   echo '<script>alert("Successfully Updated.")</script>'
+                redirect(base_url(), 'refresh');
             }
                        
         }
@@ -245,10 +250,12 @@ class Logistice extends CI_Controller {
                 );
             if(empty($id)){
                 $success = $this->logistic_model->Add_Assets_Category($data);
-                 echo "Successfully Added";
+                   echo '<script>alert("Successfully Added.")</script>'
+                redirect(base_url(), 'refresh');
             } else {
                 $success = $this->logistic_model->Update_Assets_Category($id,$data);
-                 echo "Successfully Updated";
+                   echo '<script>alert("Successfully Updated.")</script>'
+                redirect(base_url(), 'refresh');
             }
                        
         }
@@ -302,7 +309,8 @@ if($this->session->userdata('user_login_access') != False) {
                 );
          if(empty($id)){
             $success = $this->project_model->Add_Assets($data); 
-			echo "Successfully Added";            
+			  echo '<script>alert("Successfully Added.")</script>'
+                redirect(base_url(), 'refresh');            
          } else {
              $value = $this->project_model->GetAssetsQty($id);
              $inqty = $qty - $value->ass_qty;
@@ -321,7 +329,8 @@ if($this->session->userdata('user_login_access') != False) {
                     'in_stock' => $instock
                 );
             $success = $this->project_model->Update_Assets($id,$data); 
-			echo "Successfully Updated"; 
+			  echo '<script>alert("Successfully Updated.")</script>'
+                redirect(base_url(), 'refresh'); 
          }   
         } 
         }
