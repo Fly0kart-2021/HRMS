@@ -41,7 +41,7 @@ class Timesheet extends CI_Controller
   
 
     }
-    public function fill_timesheet( $var = null)
+    public function fill_timesheet( $var = "")
     {   $id=base64_decode(urldecode($var));
         # code...
         if(!empty($var) && $var)
