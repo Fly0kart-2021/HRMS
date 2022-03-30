@@ -230,7 +230,7 @@ class Attendance extends CI_Controller
                                 'status' => 'E'
                             );
                         $success = $this->attendance_model->Add_AttendanceData($data);
-                        echo '<script>alert("Successfully Added.")</script>'
+                        echo '<script>alert("Successfully Added.") </script>';
                         redirect(base_url(), 'refresh');             
                         }
                     } elseif($day != "Fri") {
@@ -262,7 +262,7 @@ class Attendance extends CI_Controller
                                 'status' => 'E'
                                 );
                             $this->attendance_model->Add_AttendanceData($data);
-                            echo '<script>alert("Successfully Added.")</script>'
+                            echo '<script>alert("Successfully Added.") </script>';
                             redirect(base_url(), 'refresh');
                         }
                         } else {
@@ -284,7 +284,7 @@ class Attendance extends CI_Controller
                                 'status' => 'A'
                                 );
                             $this->attendance_model->Add_AttendanceData($data);
-                            echo '<script>alert("Successfully Added.")</script>'
+                            echo '<script>alert("Successfully Added.") </script>';
                             redirect(base_url(), 'refresh');
                         }
                     }
@@ -299,7 +299,7 @@ class Attendance extends CI_Controller
                                 'status' => 'A'
                                 );
                             $this->attendance_model->Update_AttendanceData($id, $data);
-                            echo '<script>alert("Successfully Updated.")</script>'
+                            echo '<script>alert("Successfully Updated.") </script>';
                             redirect(base_url(), 'refresh');
                 }
             }

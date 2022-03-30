@@ -73,12 +73,12 @@ class Loan extends CI_Controller
 						echo "Already you have a loan. Please pay installation first";
 					} else {
 						$success = $this->loan_model->Add_LoanData($data);
-						  echo '<script>alert("Successfully Added.")</script>'
+						  echo '<script>alert("Successfully Added.") </script>';
                 redirect(base_url(), 'refresh');
 					}
 				} else {
 					$success = $this->loan_model->update_LoanDataVal($id, $data);
-					  echo '<script>alert("Successfully Updated.")</script>'
+					  echo '<script>alert("Successfully Updated.") </script>';
                 redirect(base_url(), 'refresh');
 				}
 			}
@@ -148,7 +148,7 @@ class Loan extends CI_Controller
 						'status'=>$status
 					);
 					$success = $this->loan_model->update_LoanData($loanid, $data);
-					  echo '<script>alert("Successfully Added.")</script>'
+					  echo '<script>alert("Successfully Added.") </script>';
                 redirect(base_url(), 'refresh');
 				} else {
 					$data = array();
@@ -164,7 +164,7 @@ class Loan extends CI_Controller
 						'notes' => $notes
 					);
 					$success = $this->loan_model->update_LoanInstallData($id, $data);
-					  echo '<script>alert("Successfully Updated.")</script>'
+					  echo '<script>alert("Successfully Updated.") </script>';
                 redirect(base_url(), 'refresh');
 				}
 			}

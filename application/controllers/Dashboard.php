@@ -53,10 +53,10 @@ class Dashboard extends CI_Controller {
         $success = $this->dashboard_model->insert_tododata($data);
             #echo "successfully added";
             if($this->db->affected_rows()){
-                echo '<script>alert("Successfully Added.")</script>'
+                echo '<script>alert("Successfully Added.")</script>';
                 redirect(base_url(), 'refresh');
             } else {
-            echo '<script>alert("Validation Error.")</script>'
+            echo '<script>alert("Validation Error.")</script>';
             redirect(base_url(), 'refresh');
             }
         }        
@@ -71,10 +71,10 @@ class Dashboard extends CI_Controller {
         $update= $this->dashboard_model->UpdateTododata($id,$data);
         $inserted = $this->db->affected_rows();
 		if($inserted){
-            echo '<script>alert("Successfully Added.")</script>'
+            echo '<script>alert("Successfully Added.")</script>';
             redirect(base_url(), 'refresh');
 		} else {
-            echo '<script>alert("Something went wrong.")</script>'
+            echo '<script>alert("Something went wrong.")</script>';
             redirect(base_url(), 'refresh');	
 		}
 	}    
