@@ -71,11 +71,11 @@ class Dashboard extends CI_Controller {
         $update= $this->dashboard_model->UpdateTododata($id,$data);
         $inserted = $this->db->affected_rows();
 		if($inserted){
-			$message="Successfully Added";
-			echo $message;
+            echo '<script>alert("Successfully Added.")</script>'
+            redirect(base_url(), 'refresh');
 		} else {
-			$message="Something went wrong";
-			echo $message;			
+            echo '<script>alert("Something went wrong.")</script>'
+            redirect(base_url(), 'refresh');	
 		}
 	}    
     
