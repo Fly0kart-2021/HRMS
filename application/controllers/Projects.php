@@ -52,7 +52,7 @@ class Projects extends CI_Controller
 			
 			
 			if ($this->session->userdata('user_type') == 'EMPLOYEE') {
-				$id               = $this->session->userdata('user_login_id');
+				$id = $this->session->userdata('user_login_id');
 				$depid  = $this->session->userdata('dep_id');
 				$data['projects'] = $this->project_model->GetEmProjectsValue($id,$depid);
 			} 
