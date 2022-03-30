@@ -85,9 +85,8 @@
                         echo "Successfully Added";
                     } else {
                         $success = $this->payroll_model->Update_typeInfo($id, $data);
-                        #$this->session->set_flashdata('feedback','Successfully Updated');
-                        #redirect("leave/Holidays");
-                        echo "Successfully Updated";
+                        echo '<script>alert("Successfully Added")</script>';
+                        redirect("Payroll/Payslip_Report", 'refresh');
                     }
                 }
             } else {
