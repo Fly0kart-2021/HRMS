@@ -104,6 +104,8 @@ class Settings extends CI_Controller {
             echo '<script>alert("Successfully Updated")</script>';
             redirect("settings/Settings", 'refresh');
             #$this->session->set_flashdata('feedback','Successfully Updated');    
+			echo '<script>alert("Successfully Updated") </script>';;
+redirect("settings/Settings", 'refresh'); 
 			}
         } else {
                 $data = array();

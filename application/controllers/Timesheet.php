@@ -22,7 +22,7 @@ class Timesheet extends CI_Controller
     }
 
 
-    public function my_timesheets( $var = null)
+    public function my_timesheets( $var = "")
     {
 
      
@@ -34,14 +34,14 @@ class Timesheet extends CI_Controller
     $this->db->select('*');
     $this->db->from('timesheet');
     $this->db->where(array('emp_id' =>$em_id ));
-   $result= $this->db->get()->result();
+    $result= $this->db->get()->result();
 
 
         $this->load->view('backend/mytimesheet',array('result'=>$result));
   
 
     }
-    public function fill_timesheet( $var = null)
+    public function fill_timesheet( $var = "")
     {   $id=base64_decode(urldecode($var));
         # code...
         if(!empty($var) && $var)
@@ -147,7 +147,7 @@ if(!$this->input->post('tsid'))
 
     public function delte_timeshhet_by_date($id)
     {
-        # delte timesheet of curent employee by date
+        # delete timesheet of curent employee by date
 
        
         $this->db->where('id', $id);

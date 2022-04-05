@@ -52,7 +52,7 @@ class Projects extends CI_Controller
 			
 			
 			if ($this->session->userdata('user_type') == 'EMPLOYEE') {
-				$id               = $this->session->userdata('user_login_id');
+				$id = $this->session->userdata('user_login_id');
 				$depid  = $this->session->userdata('dep_id');
 				$data['projects'] = $this->project_model->GetEmProjectsValue($id,$depid);
 			} 
@@ -104,7 +104,8 @@ class Projects extends CI_Controller
 				);
 				if(empty($id)){
 					$success = $this->project_model->Add_FieldData($data);
-					echo "Successfully Added";
+					  echo '<script>alert("Successfully Added.") </script>';
+                redirect(base_url(), 'refresh');
 				} else {
 					$data = array(
 						'project_id' => $projectID,
@@ -118,7 +119,8 @@ class Projects extends CI_Controller
 					);
 
 					$success = $this->project_model->update_FieldData($id, $data);
-					echo "Successfully Updated";
+					  echo '<script>alert("Successfully Updated.") </script>';
+                redirect(base_url(), 'refresh');
 				}
 
 			}
@@ -165,12 +167,14 @@ class Projects extends CI_Controller
 					$success = $this->project_model->Add_ProjectData($data);
 					#$this->session->set_flashdata('feedback','Successfully Added');
 					#redirect("projects/All_Projects");
-					echo "Successfully Added";
+					  echo '<script>alert("Successfully Added.") </script>';
+                redirect(base_url(), 'refresh');
 				} else {
 					$success = $this->project_model->update_ProjectData($id, $data);
 					#$this->session->set_flashdata('feedback','Successfully Updated');
 					#redirect("projects/view?P=" .base64_encode($id));
-					echo "Successfully Updated";
+					  echo '<script>alert("Successfully Updated.") </script>';
+                redirect(base_url(), 'refresh');
 				}
 
 			}
@@ -238,7 +242,8 @@ class Projects extends CI_Controller
 						);
 				$success = $this->project_model->insert_members_Data($data);
 					}
-					echo "Successfully Added";
+					  echo '<script>alert("Successfully Added.") </script>';
+                redirect(base_url(), 'refresh');
 				} else {
 					$success = $this->project_model->Update_Tasks($id, $data);
 					$success = $this->project_model->Delet_members_Data($id);
@@ -263,7 +268,8 @@ class Projects extends CI_Controller
 
 						$success = $this->project_model->insert_members_Data($data);
 					}
-					echo "Successfully Updated";
+					  echo '<script>alert("Successfully Updated.") </script>';
+                redirect(base_url(), 'refresh');
 				}
 
 			}
@@ -338,7 +344,8 @@ class Projects extends CI_Controller
 						);
 						$success = $this->project_model->insert_members_Data($data);
 					}
-					echo "Successfully Added";
+					  echo '<script>alert("Successfully Added.") </script>';
+                redirect(base_url(), 'refresh');
 				} else {
 					$success = $this->project_model->Update_Tasks($id, $data);
 					$success = $this->project_model->Delet_members_Data($id);
@@ -354,7 +361,8 @@ class Projects extends CI_Controller
 
 						$success = $this->project_model->insert_members_Data($data);
 					}
-					echo "Successfully Updated";
+					  echo '<script>alert("Successfully Updated.") </script>';
+                redirect(base_url(), 'refresh');
 				}
 
 			}
@@ -399,7 +407,8 @@ class Projects extends CI_Controller
 				$success = $this->logistic_model->Add_LogisticeSupport($data);
 				#$this->session->set_flashdata('feedback','Successfully Added');
 				#redirect("loan/View");
-				#echo "Successfully Added";
+				#  echo '<script>alert("Successfully Added.") </script>';
+                redirect(base_url(), 'refresh');
 				$assets  = $this->logistic_model->getAssetsQty($logid);
 				$inqty   = $assets->in_stock - $logqty;
 				$data    = array();
@@ -407,7 +416,8 @@ class Projects extends CI_Controller
 					'in_stock' => $inqty
 				);
 				$this->logistic_model->Update_Assets($logid, $data);
-				echo "Successfully Updated";
+				  echo '<script>alert("Successfully Updated.") </script>';
+                redirect(base_url(), 'refresh');
 			} else {
 				$success = $this->logistic_model->Update_LogisticeSupport($id, $data);
 				$assets  = $this->logistic_model->getAssetsQty($logid);
@@ -417,7 +427,8 @@ class Projects extends CI_Controller
 					'in_stock' => $inqty
 				);
 				$this->logistic_model->Update_Assets($logid, $data);
-				echo "Successfully Updated";
+				  echo '<script>alert("Successfully Updated.") </script>';
+                redirect(base_url(), 'refresh');
 			}
 
 		}
@@ -471,7 +482,8 @@ class Projects extends CI_Controller
 						'assigned_to' => $emid
 					);
 					$success = $this->project_model->Add_Project_File($data);
-					echo "Successfully Updated";
+					  echo '<script>alert("Successfully Updated.") </script>';
+                redirect(base_url(), 'refresh');
 					#$this->session->set_flashdata('feedback','Successfully Updated');
 					#redirect("projects/view?P=" .base64_encode($proid));
 				}
@@ -509,12 +521,14 @@ class Projects extends CI_Controller
 					$success = $this->project_model->Add_Project_Notes($data);
 					#$this->session->set_flashdata('feedback','Successfully Updated');
 					#redirect("projects/view?P=" .base64_encode($proid));
-					echo "Successfully Added";
+					  echo '<script>alert("Successfully Added.") </script>';
+                redirect(base_url(), 'refresh');
 				} else {
 					$success = $this->project_model->Update_Project_Notes($id, $data);
 					#$this->session->set_flashdata('feedback','Successfully Updated');
 					#redirect("projects/view?P=" .base64_encode($proid));
-					echo "Successfully Updated";
+					  echo '<script>alert("Successfully Updated.") </script>';
+                redirect(base_url(), 'refresh');
 				}
 
 
@@ -554,12 +568,14 @@ class Projects extends CI_Controller
 					$success = $this->project_model->Add_Project_expenses($data);
 					#$this->session->set_flashdata('feedback','Successfully Updated');
 					# redirect("projects/view?P=" .base64_encode($proid));
-					echo "Successfully Added";
+					  echo '<script>alert("Successfully Added.") </script>';
+                redirect(base_url(), 'refresh');
 				} else {
 					$success = $this->project_model->Updated_Project_expenses($id, $data);
 					#$this->session->set_flashdata('feedback','Successfully Updated');
 					# redirect("projects/view?P=" .base64_encode($proid));
-					echo "Successfully Updated";
+					  echo '<script>alert("Successfully Updated.") </script>';
+                redirect(base_url(), 'refresh');
 				}
 
 

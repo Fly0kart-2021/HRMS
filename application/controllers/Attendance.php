@@ -231,8 +231,11 @@ class Attendance extends CI_Controller
                                 'status' => 'E'
                             );
                         $success = $this->attendance_model->Add_AttendanceData($data);
+
                         echo '<script>alert("Successfully updated!")</script>';
                         redirect("attendance/Attendance", 'refresh');              
+                        echo '<script>alert("Successfully Added.") </script>';
+                        redirect(base_url(), 'refresh');             
                         }
                     } elseif($day != "Fri") {
                         $holiday = $this->leave_model->get_holiday_between_dates($new_date_changed);
@@ -266,6 +269,8 @@ class Attendance extends CI_Controller
                             $this->attendance_model->Add_AttendanceData($data);
                             echo '<script>alert("Successfully added")</script>';
                             redirect("attendance/Attendance", 'refresh');              
+                            echo '<script>alert("Successfully Added.") </script>';
+                            redirect(base_url(), 'refresh');
                         }
                         } else {
                         $duplicate = $this->attendance_model->getDuplicateVal($em_id,$new_date_changed);
@@ -289,6 +294,8 @@ class Attendance extends CI_Controller
                             $this->attendance_model->Add_AttendanceData($data);
                             echo '<script>alert("Successfully added")</script>';
                             redirect("attendance/Attendance", 'refresh');              
+                            echo '<script>alert("Successfully Added.") </script>';
+                            redirect(base_url(), 'refresh');
                         }
                     }
                     }
@@ -304,6 +311,8 @@ class Attendance extends CI_Controller
                             $this->attendance_model->Update_AttendanceData($id, $data);
                             echo '<script>alert("Successfully Updated")</script>';
                             redirect("attendance/Attendance", 'refresh');              
+                            echo '<script>alert("Successfully Updated.") </script>';
+                            redirect(base_url(), 'refresh');
                 }
             }
         } else {
