@@ -82,6 +82,15 @@
                         $success = $this->payroll_model->Add_typeInfo($data);
                         #redirect("leave/Holidays");
                         #$this->session->set_flashdata('feedback','Successfully Added');
+                        // echo "Successfully Added";
+                        echo '<script>alert("Successfully Added")</script>';
+                        redirect("Payroll/Payslip_Report", 'refresh');
+                    } else {
+                        $success = $this->payroll_model->Update_typeInfo($id, $data);
+                        #$this->session->set_flashdata('feedback','Successfully Updated');
+                        #redirect("leave/Holidays");
+                        // echo "Successfully Updated";
+                        echo '<script>alert("Successfully Added")</script>';
                           echo '<script>alert("Successfully Added.") </script>';
                 redirect(base_url(), 'refresh');
                     } else {

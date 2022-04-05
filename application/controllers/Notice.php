@@ -79,8 +79,13 @@ class Notice extends CI_Controller {
             $success = $this->notice_model->Published_Notice($data); 
             #$this->session->set_flashdata('feedback','Successfully Updated');
             #redirect("notice/All_notice");
+
+                echo '<script>alert("Successfully Added")</script>';
+                redirect("notice/All_notice", 'refresh');
+
                   echo '<script>alert("Successfully Added.") </script>';
                 redirect(base_url(), 'refresh');
+
 			}
         }
             
