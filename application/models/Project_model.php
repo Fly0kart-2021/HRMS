@@ -250,7 +250,7 @@ class Project_model extends CI_Model
         $sql = "SELECT `field_visit`.*,
       `employee`.`em_id`
       FROM `field_visit`
-      LEFT JOIN `employee` ON `field_visit`.`emp_id`=`employee`.`em_id` 
+      LEFT JOIN `employee` ON `field_visit`.`emp_id`=`employee`.`em_id`
       WHERE `field_visit`.`id`='$id'";
         $query = $this->db->query($sql);
         $result = $query->row();

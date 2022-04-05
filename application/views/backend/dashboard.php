@@ -27,7 +27,7 @@
                                     <div class="round align-self-center round-success"><i class="ti-wallet"></i></div>
                                     <div class="m-l-10 align-self-center">
                                         <h3 class="m-b-0">
-                                    <?php 
+                                    <?php
                                         $this->db->where('status','ACTIVE');
                                         $this->db->from("employee");
                                         echo $this->db->count_all_results();
@@ -46,24 +46,24 @@
                                     <div class="round align-self-center round-info"><i class="ti-user"></i></div>
                                     <div class="m-l-10 align-self-center">
                                         <h3 class="m-b-0">
-                                             <?php 
+                                             <?php
                                             $usertype=$this->session->userdata('user_type');
                                             if($usertype=='EMPLOYEE')
                                             {$userid= $this->session->userdata('user_login_id');
                                                 $result=$this->db->query("SELECT emp_leave.id FROM emp_leave LEFT JOIN employee ON employee.em_id= emp_leave.em_id WHERE emp_leave.em_id='$userid' AND leave_status='Not Approve' ")->result();
-                                                
-                                                echo count($result);    
+
+                                                echo count($result);
                                             }
                                             else if($this->session->userdata('user_type')=='SUPER ADMIN')
                                             {
                                                 $result=$this->db->query("SELECT emp_leave.id FROM emp_leave LEFT JOIN employee ON employee.em_id= emp_leave.em_id WHERE leave_status='Not Approve'; ")->result();
-                                                echo count($result);    
+                                                echo count($result);
                                             }
                                             else{
                                              $result=$this->db->query("SELECT emp_leave.id FROM emp_leave LEFT JOIN employee ON employee.em_id= emp_leave.em_id WHERE employee.em_role='EMPLOYEE' AND leave_status='Not Approve' ")->result();
-                                               echo count($result);    
+                                               echo count($result);
                                             }
-                                             
+
                                              // $this->db->where('leave_status','Pending');
                                                     // $this->db->from("emp_leave");
                                                     // echo $this->db->count_all_results();
@@ -87,10 +87,10 @@
                                 <div class="d-flex flex-row">
                                     <div class="round align-self-center round-danger"><i class="ti-calendar"></i></div>
                                     <div class="m-l-10 align-self-center">
-                                        <h3 class="m-b-0"> 
-                                         <?php 
-                                                $this->db->where('pro_status','OPEN');
-                                             
+                                        <h3 class="m-b-0">
+                                         <?php
+                                                $this->db->where('id!=','');
+
                                                 $this->db->from("project");
                                                 echo $this->db->count_all_results();
                                             ?> Projects
@@ -110,11 +110,11 @@
                                     <div class="round align-self-center round-success"><i class="ti-settings"></i></div>
                                     <div class="m-l-10 align-self-center">
                                         <h3 class="m-b-0">
-                                         <?php 
+                                         <?php
                                                 $this->db->where('status','Granted');
                                                 $this->db->from("loan");
                                                 echo $this->db->count_all_results();
-                                            ?> Loan 
+                                            ?> Loan
                                         </h3>
                                         <a href="<?php echo base_url(); ?>Loan/View" class="text-muted m-b-0">View Loan</a>
                                     </div>
@@ -126,14 +126,14 @@
                 </div>
                 <!-- Row -->
                 <!-- Row -->
-                
+
                 <div class="row ">
                     <!-- Column -->
                     <div class="col-md-6 col-lg-3 col-xlg-3">
                         <div class="card card-inverse card-info">
                             <div class="box bg-info text-center">
                                 <h1 class="font-light text-white">
-                                    <?php 
+                                    <?php
                                         $this->db->where('status','INACTIVE');
                                         $this->db->from("employee");
                                         echo $this->db->count_all_results();
@@ -148,7 +148,7 @@
                         <div class="card card-success card-inverse">
                             <div class="box text-center">
                                 <h1 class="font-light text-white">
-                                             <?php 
+                                             <?php
                                              if($this->session->userdata('user_type')=='SUPER ADMIN')
                                              {
                                                     $this->db->where('leave_status','Approve');
@@ -170,7 +170,7 @@
                                                     $this->db->from("emp_leave");
                                                     echo $this->db->count_all_results();
                                              }
-                                                ?> 
+                                                ?>
                                 </h1>
                                 <h6 class="text-white">Leave Application</h6>
                             </div>
@@ -181,11 +181,11 @@
                         <div class="card card-inverse card-danger">
                             <div class="box text-center">
                                 <h1 class="font-light text-white">
-                                     <?php 
+                                     <?php
                                             $this->db->where('pro_status','NEW');
                                             $this->db->from("project");
                                             echo $this->db->count_all_results();
-                                        ?> 
+                                        ?>
                                 </h1>
                                 <h6 class="text-white">Upcomming Project</h6>
                             </div>
@@ -196,11 +196,11 @@
                         <div class="card card-inverse card-dark">
                             <div class="box text-center">
                                 <h1 class="font-light text-white">
-                                         <?php 
+                                         <?php
                                                 $this->db->where('status','Granted');
                                                 $this->db->from("loan");
                                                 echo $this->db->count_all_results();
-                                            ?> 
+                                            ?>
                                 </h1>
                                 <h6 class="text-white">Loan Application</h6>
                             </div>
@@ -209,13 +209,13 @@
                     <!-- Column -->
                 </div>
                 <!-- ============================================================== -->
-            </div> 
+            </div>
             <div class="container-fluid">
-                <?php $notice = $this->notice_model->GetNoticelimit(); 
-                $running = $this->dashboard_model->GetRunningProject(); 
+                <?php $notice = $this->notice_model->GetNoticelimit();
+                $running = $this->dashboard_model->GetRunningProject();
                 $userid = $this->session->userdata('user_login_id');
-                $todolist = $this->dashboard_model->GettodoInfo($userid);                 
-                $holiday = $this->dashboard_model->GetHolidayInfo();                 
+                $todolist = $this->dashboard_model->GettodoInfo($userid);
+                $holiday = $this->dashboard_model->GetHolidayInfo();
                 ?>
                 <!-- Row -->
                 <div class="row">
@@ -268,12 +268,12 @@
                                                     <div class="checkbox checkbox-info">
                                                         <input class="to-do" data-id="<?php echo $value->id?>" data-value="1" type="checkbox" id="<?php echo $value->id?>" checked>
                                                         <label class="task-done" for="<?php echo $value->id?>"><span><?php echo $value->to_dodata; ?></span></label>
-                                                    </div> 
-                                                    <?php } ?>                                                   
+                                                    </div>
+                                                    <?php } ?>
                                                 </li>
 
                                                 <?php endforeach; ?>
-                                            </ul>                                    
+                                            </ul>
                                 </div>
                                 <div class="new-todo">
                                    <form method="post" action="add_todo" enctype="multipart/form-data" id="add_todo" >
@@ -282,10 +282,10 @@
                                         <span class="input-group-btn">
                                         <input type="hidden" name="userid" value="<?php echo $this->session->userdata('user_login_id'); ?>">
                                         <button type="submit" class="btn btn-success todo-submit"><i class="fa fa-plus"></i></button>
-                                        </span> 
+                                        </span>
                                     </div>
                                     </form>
-                                </div>                                
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -317,7 +317,7 @@
                                             <?php endforeach; ?>
                                         </tbody>
                                     </table>
-                                </div>                                
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -335,7 +335,7 @@
                                             <tr>
                                                 <th>Holiday Name</th>
                                                 <th>Date</th>
-                                            </tr>                                           
+                                            </tr>
                                        </thead>
                                        <tbody>
                                           <?php foreach($holiday as $value): ?>
@@ -344,13 +344,13 @@
                                                <td><?php echo $value->from_date; ?></td>
                                            </tr>
                                            <?php endforeach ?>
-                                       </tbody> 
+                                       </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div> 
+                </div>
 <script>
   $(".to-do").on("click", function(){
       //console.log($(this).attr('data-value'));
@@ -359,7 +359,7 @@
           type:"POST",
           data:
           {
-          'toid': $(this).attr('data-id'),         
+          'toid': $(this).attr('data-id'),
           'tovalue': $(this).attr('data-value'),
           },
           success: function(response) {
@@ -369,6 +369,6 @@
             console.error();
           }
       });
-  });			
-</script>                                               
+  });
+</script>
 <?php $this->load->view('backend/footer'); ?>

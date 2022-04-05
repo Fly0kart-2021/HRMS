@@ -51,15 +51,15 @@
             }
         }
         /* public function Salary_List(){
-        if($this->session->userdata('user_login_access') != False) { 
-        
+        if($this->session->userdata('user_login_access') != False) {
+
         $data['salaryvalue'] = $this->payroll_model->GetsalaryValueEm();
 
         $this->load->view('backend/salary_list',$data);
         }
         else{
             redirect(base_url() , 'refresh');
-        }        
+        }
     }*/
         public function Add_Sallary_Type()
         {
@@ -339,7 +339,7 @@
             $holiday = $this->payroll_model->GetHolidayByYear($dateval);
             $totalday = 0;
             foreach ($holiday as $value) {
-                #$start = date_create($value->from_date); 
+                #$start = date_create($value->from_date);
                 #$end = date_create($value->to_date);
 
                 $days = $value->number_of_days;
@@ -500,7 +500,7 @@
                 if ($loan_amount) {
                     $loan_amount = $loan_amount->installment;
                 }
-                // Sending 
+                // Sending
 
                 $data['a'] = $addition;
                 $data['d'] = $data['salary_info']->diduction;
@@ -521,7 +521,7 @@
                 $month = $orderdate[0];
                 $year = $orderdate[1];
                 $month = $this->month_number_to_name($month);
-                //die($year); 
+                //die($year);
                 $data2                      = array();
                 $salary_info = $this->payroll_model->getAllSalaryDataByMonthYearEm($eid, $month, $year);
                 //print_r($salary_info);
@@ -613,7 +613,7 @@
                 if ($loan_amount) {
                     $loan_amount = $loan_amount->installment;
                 }
-                // Sending 
+                // Sending
 
                 $obj_merged = (object) array_merge((array) $employee_info, (array) $salaryvaluebyid, (array) $salarypaybyid, (array) $salaryvalue, (array) $loanvaluebyid);
 
@@ -754,11 +754,11 @@
                                                 <td class='text-right'>
                                                 </td>
                                                 <td class='text-right'>
-                                                         $salary_info->diduction INR 
+                                                         $salary_info->diduction INR
                                                 </td>
                                                 <td class='text-right'> </td>
                                             </tr>
-                                            
+
                                             <tr>
                                                 <td>Tax</td>
                                                 <td class='text-right'> </td>
@@ -886,7 +886,7 @@
                     $loan_amount = $loan_amount->installment;
                 }
 
-                // Sending 
+                // Sending
                 $data = array();
                 $data['basic_salary'] = $employee_salary;
                 $data['total_work_hours'] = $total_work_hours;
@@ -937,7 +937,7 @@
                 // if ($this->form_validation->run() == FALSE) {
                 //         echo validation_errors();
                 //         // redirect("Payroll/Generate_salary");
-                //     } 
+                //     }
 
 
                 $getaddition = $this->payroll_model->getaddition($emid);
@@ -1111,7 +1111,7 @@
 
                 $year = explode('-', $date_time);
                 $month = $year[0];
-                $year = $year[1];
+                $year = $year[0];
 
                 $employees = $this->payroll_model->GetDepEmployee($dep_id);
 
@@ -1126,18 +1126,18 @@
                     <td>$full_name</td>
                     <td>$employee->total</td>
                     <td><a href=''
-                                data-id='$employee->em_id' 
-                                data-month='$month' 
-                                data-year='$year' 
-                                data-has_loan='$has_loan' 
-                                class='btn btn-sm btn-info waves-effect waves-light salaryGenerateModal' 
+                                data-id='$employee->em_id'
+                                data-month='$month'
+                                data-year='$year'
+                                data-has_loan='$has_loan'
+                                class='btn btn-sm btn-info waves-effect waves-light salaryGenerateModal'
                                 data-toggle='modal'
                                 data-target='#salaryGenerateModal'>
                         Generate Salary</a></td>
                 </tr>";
                 }
 
-                // Sending 
+                // Sending
                 $data = array();
                 $data['basic_salary'] = $employee_salary;
                 $data['total_work_hours'] = $total_work_hours;
@@ -1225,7 +1225,7 @@
                 // Final Salary
                 $final_salary = $employee_salary + $addition - $diduction - $loan_amount;
 
-                // Sending 
+                // Sending
                 $data = array();
                 $data['basic_salary'] = $employee_salary;
                 $data['total_work_hours'] = $total_work_hours;
@@ -1247,7 +1247,7 @@
         }
 
 
- 
+
 
 
 
@@ -1270,7 +1270,7 @@
                 $depid = $_POST['id'];
             $date = $_POST['datetime'];
             $datetime = array();
-            $datetime = explode('-', $date); 
+            $datetime = explode('-', $date);
            $year = $datetime[1];
            $month = $this->month_number_to_name( $datetime[0]);
            $this->payroll_model->finalpay($depid,$month,$year);
@@ -1301,7 +1301,7 @@
                 $totaldays = $pay_salary_data['total_work_hours'] / 8;
                 $workinghour = $this->payroll_model->getattendbyid($_GET['month'], $_GET['year'], $employee->em_id);
                 $finalwh = date('00:00:00');
-                #get holiday list for the month 
+                #get holiday list for the month
                 $holidaylist = $this->payroll_model->getholidaylist($_GET['month'], $_GET['year']);
                 #get employee paid leaves for the month
                 $paidleavelist = $this->payroll_model->getmonthlypaidleave($_GET['month'], $_GET['year'], $employee->em_id);
