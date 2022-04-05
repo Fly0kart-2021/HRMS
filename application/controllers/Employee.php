@@ -185,12 +185,16 @@ class Employee extends CI_Controller {
                 if($id){
             $success = $this->employee_model->Update($data,$id); 
             #$this->session->set_flashdata('feedback','Successfully Updated');
-            echo "Successfully Updated";
+                        echo '<script>alert("Successfully Updated")</script>';
+            redirect("employee/Employees", 'refresh');
+            echo '<script>alert("Successfully Updated")</script>';
+            redirect("employee/Employees", 'refresh');
                 } else {
             $success = $this->employee_model->Add($data);
             #$this->confirm_mail_send($email,$pass_hash);        
-            #$this->session->set_flashdata('feedback','Successfully Created');
-            echo "Successfully Added";                     
+            #$this->session->set_flashdata('feedback','Successfully Created');               
+            echo '<script>alert("Successfully Added")</script>';
+            redirect("employee/Employees", 'refresh');      
                 }
 			}
         } else {
@@ -218,13 +222,15 @@ class Employee extends CI_Controller {
                 if($id){
             $success = $this->employee_model->Update($data,$id); 
             #$this->session->set_flashdata('feedback','Successfully Updated');
-            echo "Successfully Updated";        
-            #redirect('employee/Add_employee'); 
+            echo '<script>alert("Successfully Updated")</script>';
+            redirect("employee/Add_employee", 'refresh'); 
+            #redirect('employee/Add_employee');
+             
                 } else {
             $success = $this->employee_model->Add($data);
             #$this->confirm_mail_send($email,$pass_hash);        
-            echo "Successfully Added";
-            #redirect('employee/Add_employee');                     
+            echo '<script>alert("Successfully Added")</script>';
+            redirect("employee/Add_employee", 'refresh'); 
                 }
             }
             }
@@ -322,7 +328,8 @@ class Employee extends CI_Controller {
                 if($id){
             $success = $this->employee_model->Update($data,$id); 
             $this->session->set_flashdata('feedback','Successfully Updated');
-            echo "Successfully Updated";
+            echo '<script>alert("Successfully Updated")</script>';
+            redirect("employee/Employees", 'refresh');
                 }
 			}
         } else {
@@ -348,7 +355,8 @@ class Employee extends CI_Controller {
                 if($id){
             $success = $this->employee_model->Update($data,$id); 
             $this->session->set_flashdata('feedback','Successfully Updated');
-            echo "Successfully Updated";
+            echo '<script>alert("Successfully Added")</script>';
+            redirect("employee/Employees", 'refresh');
                 }
             }
         }
@@ -405,11 +413,13 @@ class Employee extends CI_Controller {
             if(!empty($id)){
                 $success = $this->employee_model->UpdateParmanent_Address($id,$data);
                 $this->session->set_flashdata('feedback','Successfully Updated');
-                echo "Successfully Updated";                
+                echo '<script>alert("Successfully Updated")</script>';
+                redirect("employee/Employees", 'refresh');              
             } else {
                 $success = $this->employee_model->AddParmanent_Address($data);
                 $this->session->set_flashdata('feedback','Successfully Added');
-                echo "Successfully Added";
+                echo '<script>alert("Successfully Added")</script>';
+                redirect("employee/Employees", 'refresh');
             }
                        
         }
@@ -444,11 +454,13 @@ class Employee extends CI_Controller {
             if(empty($id)){
                 $success = $this->employee_model->AddParmanent_Address($data);
                 $this->session->set_flashdata('feedback','Successfully Added');
-                echo "Successfully Updated";
+                echo '<script>alert("Successfully Updated")</script>';
+                redirect("employee/Employees", 'refresh');
             } else {
                 $success = $this->employee_model->UpdateParmanent_Address($id,$data);
                 $this->session->set_flashdata('feedback','Successfully Updated');
-                echo "Successfully Added";
+                echo '<script>alert("Successfully Added")</script>';
+                redirect("employee/Employees", 'refresh');
             }
                        
         }
@@ -485,11 +497,13 @@ class Employee extends CI_Controller {
             if(empty($id)){
                 $success = $this->employee_model->Add_education($data);
                 $this->session->set_flashdata('feedback','Successfully Added');
-                echo "Successfully Added";
+                            echo '<script>alert("Successfully Added")</script>';
+            redirect("employee/Employees", 'refresh');
             } else {
                 $success = $this->employee_model->Update_Education($id,$data);
                 #$this->session->set_flashdata('feedback','Successfully Updated');
-                echo "Successfully Updated";
+                            echo '<script>alert("Successfully Updated")</script>';
+            redirect("employee/Employees", 'refresh');
             }
                        
         }
@@ -523,10 +537,12 @@ class Employee extends CI_Controller {
                 );
             if(empty($id)){
                 $success = $this->employee_model->Insert_Media($data);
-                echo "Successfully Added";
+                            echo '<script>alert("Successfully Added")</script>';
+            redirect("employee/Employees", 'refresh');
             } else {
                 $success = $this->employee_model->Update_Media($id,$data);
-                echo "Successfully Updated";
+                            echo '<script>alert("Successfully Updated")</script>';
+            redirect("employee/Employees", 'refresh');
             }
                        
         }
@@ -563,11 +579,13 @@ class Employee extends CI_Controller {
             if(empty($id)){
                 $success = $this->employee_model->Add_Experience($data);
                 $this->session->set_flashdata('feedback','Successfully Added');
-                echo "Successfully Updated";
+                            echo '<script>alert("Successfully Updated")</script>';
+            redirect("employee/Employees", 'refresh');
             } else {
                 $success = $this->employee_model->Update_Experience($id,$data);
                 #$this->session->set_flashdata('feedback','Successfully Updated');
-                echo "Successfully Updated";
+                            echo '<script>alert("Successfully Updated")</script>';
+            redirect("employee/Employees", 'refresh');
             }
                        
         }
@@ -612,12 +630,14 @@ class Employee extends CI_Controller {
                 $success = $this->employee_model->Add_Desciplinary($data);
                 $this->session->set_flashdata('feedback','Successfully Added');
                 #redirect('employee/Disciplinary');
-                echo "Successfully Added";
+                            echo '<script>alert("Successfully Added")</script>';
+            redirect("employee/Employees", 'refresh');
             } else {
                 $success = $this->employee_model->Update_Desciplinary($id,$data);
                 #$this->session->set_flashdata('feedback','Successfully Updated');
                 #redirect("employee/view?I=" .base64_encode($em_id));
-                echo "Successfully Updated";
+                            echo '<script>alert("Successfully Updated")</script>';
+            redirect("employee/Employees", 'refresh');
             }
                        
         }
@@ -658,12 +678,14 @@ class Employee extends CI_Controller {
                 $success = $this->employee_model->Add_BankInfo($data);
                 #$this->session->set_flashdata('feedback','Successfully Added');
                 #redirect("employee/view?I=" .base64_encode($em_id));
-                echo "Successfully Added";
+                            echo '<script>alert("Successfully Added")</script>';
+            redirect("employee/Employees", 'refresh');
             } else {
                 $success = $this->employee_model->Update_BankInfo($id,$data);
                 #$this->session->set_flashdata('feedback','Successfully Updated');
                 #redirect("employee/view?I=" .base64_encode($em_id));
-                echo "Successfully Updated";
+                            echo '<script>alert("Successfully Updated")</script>';
+            redirect("employee/Employees", 'refresh');
             }
                        
         }
@@ -685,7 +707,8 @@ class Employee extends CI_Controller {
         $success = $this->employee_model->Reset_Password($id,$data);
         #$this->session->set_flashdata('feedback','Successfully Updated');
         #redirect("employee/view?I=" .base64_encode($id));
-                echo "Successfully Updated";
+                            echo '<script>alert("Successfully Updated")</script>';
+            redirect("employee/Employees", 'refresh');
             } else {
         $this->session->set_flashdata('feedback','Please enter valid password');
         #redirect("employee/view?I=" .base64_encode($id)); 
@@ -713,7 +736,8 @@ class Employee extends CI_Controller {
         $success = $this->employee_model->Reset_Password($id,$data);
         $this->session->set_flashdata('feedback','Successfully Updated');
         #redirect("employee/view?I=" .base64_encode($id));
-                echo "Successfully Updated";
+                            echo '<script>alert("Successfully Updated")</script>';
+            redirect("employee/Employees", 'refresh');
             } else {
         $this->session->set_flashdata('feedback','Please enter valid password');
         #redirect("employee/view?I=" .base64_encode($id));
@@ -816,7 +840,8 @@ class Employee extends CI_Controller {
             );
             $success = $this->employee_model->Add_Assign_Leave($data);
             $a=10;
-            echo "Successfully Added";
+                        echo '<script>alert("Successfully Added")</script>';
+            redirect("employee/Employees", 'refresh');
         }
         }
     else{
@@ -869,7 +894,8 @@ class Employee extends CI_Controller {
             $success = $this->employee_model->File_Upload($data); 
             #$this->session->set_flashdata('feedback','Successfully Updated');
             #redirect("employee/view?I=" .base64_encode($em_id));
-                echo "Successfully Updated";
+                            echo '<script>alert("Successfully Updated")</script>';
+            redirect("employee/Employees", 'refresh');
 			}
         }
             
@@ -988,11 +1014,13 @@ class Employee extends CI_Controller {
             if(!empty($sid)){
                 $success = $this->employee_model->Update_Salary($sid,$data);
                 #$this->session->set_flashdata('feedback','Successfully Updated');
-                #echo "Successfully Updated";
+                #            echo '<script>alert("Successfully Updated")</script>';
+            redirect("employee/Employees", 'refresh');
                 #$success = $this->employee_model->Add_Salary($data);
                 #$insertId = $this->db->insert_id();
                 #$this->session->set_flashdata('feedback','Successfully Added');
-                #echo "Successfully Added";
+                #            echo '<script>alert("Successfully Added")</script>';
+            redirect("employee/Employees", 'refresh');
                 if(!empty($aid)){
                 $data1 = array();
                 $data1 = array(
@@ -1016,12 +1044,14 @@ class Employee extends CI_Controller {
                 $success = $this->employee_model->Update_Deduction($did,$data2);                    
                 }
 
-                echo "Successfully Updated";                
+                            echo '<script>alert("Successfully Updated")</script>';
+            redirect("employee/Employees", 'refresh');                
             } else {
                 $success = $this->employee_model->Add_Salary($data);
                 $insertId = $this->db->insert_id();
                 #$this->session->set_flashdata('feedback','Successfully Added');
-                #echo "Successfully Added";
+                #            echo '<script>alert("Successfully Added")</script>';
+            redirect("employee/Employees", 'refresh');
                 $data1 = array();
                 $data1 = array(
                     'salary_id' => $insertId,
@@ -1040,7 +1070,8 @@ class Employee extends CI_Controller {
                     'others' => $others
                 );
                 $success = $this->employee_model->Add_Deduction($data2); 
-                echo "Successfully Added";
+                            echo '<script>alert("Successfully Added")</script>';
+            redirect("employee/Employees", 'refresh');
             }           
         }
         }

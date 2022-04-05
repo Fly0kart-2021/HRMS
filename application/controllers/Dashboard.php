@@ -53,9 +53,12 @@ class Dashboard extends CI_Controller {
         $success = $this->dashboard_model->insert_tododata($data);
             #echo "successfully added";
             if($this->db->affected_rows()){
-                echo "successfully added";
+                echo '<script>alert("Successfully Added")</script>';
+                redirect("dashboard/Dashboard", 'refresh');
             } else {
-                echo "validation Error";
+                echo '<script>alert("validation Error")</script>';
+                redirect("dashboard/Dashboard", 'refresh');
+                echo "";
             }
         }        
     }

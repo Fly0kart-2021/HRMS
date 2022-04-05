@@ -207,7 +207,8 @@ class Attendance extends CI_Controller
                         $duplicate = $this->attendance_model->getDuplicateVal($em_id,$new_date_changed);
                         //print_r($duplicate);
                         if(!empty($duplicate)){
-                            echo "Already Exist";
+                            echo '<script>alert("Already exists")</script>';
+                            redirect("attendance/Attendance", 'refresh');
                         } else {
                         $emcode = $this->employee_model->emselectByCode($em_id);
                         $emid = $emcode->em_id;
@@ -230,7 +231,8 @@ class Attendance extends CI_Controller
                                 'status' => 'E'
                             );
                         $success = $this->attendance_model->Add_AttendanceData($data);
-                        echo "Successfully updated!";               
+                        echo '<script>alert("Successfully updated!")</script>';
+                        redirect("attendance/Attendance", 'refresh');              
                         }
                     } elseif($day != "Fri") {
                         $holiday = $this->leave_model->get_holiday_between_dates($new_date_changed);
@@ -238,7 +240,8 @@ class Attendance extends CI_Controller
                         $duplicate = $this->attendance_model->getDuplicateVal($em_id,$new_date_changed);
                         //print_r($duplicate);
                         if(!empty($duplicate)){
-                            echo "Already Exist";
+                            echo '<script>alert("Already Exist")</script>';
+                            redirect("attendance/Attendance", 'refresh');              
                         } else {                            
                             $emcode = $this->employee_model->emselectByCode($em_id);
                             $emid = $emcode->em_id;
@@ -261,13 +264,15 @@ class Attendance extends CI_Controller
                                 'status' => 'E'
                                 );
                             $this->attendance_model->Add_AttendanceData($data);
-                            echo "Successfully added.";
+                            echo '<script>alert("Successfully added")</script>';
+                            redirect("attendance/Attendance", 'refresh');              
                         }
                         } else {
                         $duplicate = $this->attendance_model->getDuplicateVal($em_id,$new_date_changed);
                         //print_r($duplicate);
                         if(!empty($duplicate)){
-                            echo "Already Exist";
+                            echo '<script>alert("Already Exist")</script>';
+                            redirect("attendance/Attendance", 'refresh');              
                         } else {
                             //$date = date('Y-m-d', $i);
                         
@@ -282,7 +287,8 @@ class Attendance extends CI_Controller
                                 'status' => 'A'
                                 );
                             $this->attendance_model->Add_AttendanceData($data);
-                            echo "Successfully added.";
+                            echo '<script>alert("Successfully added")</script>';
+                            redirect("attendance/Attendance", 'refresh');              
                         }
                     }
                     }
@@ -296,7 +302,8 @@ class Attendance extends CI_Controller
                                 'status' => 'A'
                                 );
                             $this->attendance_model->Update_AttendanceData($id, $data);
-                            echo "Successfully Updated.";
+                            echo '<script>alert("Successfully Updated")</script>';
+                            redirect("attendance/Attendance", 'refresh');              
                 }
             }
         } else {
@@ -346,7 +353,8 @@ class Attendance extends CI_Controller
 
             }
         }
-         echo "successfully Updated"; 
+        echo '<script>alert("Successfully Updated")</script>';
+        redirect("attendance/Attendance", 'refresh');              
         }
 
 }
