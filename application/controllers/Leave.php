@@ -100,26 +100,14 @@ class Leave extends CI_Controller
                     $success = $this->leave_model->Add_HolidayInfo($data);
                     $this->session->set_flashdata('feedback', 'Successfully Added');
                     #redirect("leave/Holidays");
-
-                  
-                    echo '<script>alert("Successfully Added")</script>';
-                    redirect("leave/Application", 'refresh');
-
                       echo '<script>alert("Successfully Added.") </script>';
                 redirect(base_url(), 'refresh');
-
                 } else {
                     $success = $this->leave_model->Update_HolidayInfo($id, $data);
                     $this->session->set_flashdata('feedback', 'Successfully Updated');
                     #redirect("leave/Holidays");
-
-                  
-                    echo '<script>alert("Successfully Updated")</script>';
-                    redirect("leave/Application", 'refresh');
-
                       echo '<script>alert("Successfully Updated.") </script>';
                 redirect(base_url(), 'refresh');
-
                 }
             }
         } else {
@@ -149,21 +137,12 @@ class Leave extends CI_Controller
                 );
                 if (empty($id)) {
                     $success = $this->leave_model->Add_leave_Info($data);
-
-                    echo '<script>alert("Successfully Added")</script>';
-                    redirect("leave/Application", 'refresh');
-                } else {
-                    $success = $this->leave_model->Update_leave_Info($id, $data);
-                    echo '<script>alert("Successfully Updated")</script>';
-                    redirect("leave/Application", 'refresh');
-
                       echo '<script>alert("Successfully Added.") </script>';
                 redirect(base_url(), 'refresh');
                 } else {
                     $success = $this->leave_model->Update_leave_Info($id, $data);
                       echo '<script>alert("Successfully Updated.") </script>';
                 redirect(base_url(), 'refresh');
-
                 }
             }
         } else {
@@ -335,24 +314,14 @@ class Leave extends CI_Controller
                     $success = $this->leave_model->Application_Apply($data);
                     #$this->session->set_flashdata('feedback','Successfully Updated');
                     #redirect("leave/Application");
-
-                    echo '<script>alert("Successfully Added")</script>';
-                    redirect("leave/Application", 'refresh');
-
                       echo '<script>alert("Successfully Added.") </script>';
                 redirect(base_url(), 'refresh');
-
                 } else {
                     $success = $this->leave_model->Application_Apply_Update($id, $data);
                     #$this->session->set_flashdata('feedback','Successfully Updated');
                     #redirect("leave/Application");
-
-                    echo '<script>alert("Successfully Updated")</script>';
-                    redirect("leave/Application", 'refresh');
-
                       echo '<script>alert("Successfully Updated.") </script>';
                 redirect(base_url(), 'refresh');
-
                 }
             }
         } else {
@@ -382,19 +351,11 @@ class Leave extends CI_Controller
                     'total_day' => $total
                 );
                 $success  = $this->leave_model->Assign_Duration_Update($type, $data);
-
-                echo '<script>alert("Successfully Updated")</script>';
-                redirect("leave/Holidays", 'refresh');
-            } else {
-                echo '<script>alert("Successfully Updated")</script>';
-                redirect("leave/Holidays", 'refresh');
-
                   echo '<script>alert("Successfully Updated.") </script>';
                 redirect(base_url(), 'refresh');
             } else {
                   echo '<script>alert("Successfully Updated.") </script>';
                 redirect(base_url(), 'refresh');
-
             }
         } else {
             redirect(base_url(), 'refresh');
@@ -453,9 +414,8 @@ class Leave extends CI_Controller
     {
         if ($this->session->userdata('user_login_access') != False) {
             $id      = $this->input->get('id');
+            $success = $this->leave_model->DeletHoliday($id);
             echo "Successfully Deletd";
-            echo '<script>alert("Successfully Deleted")</script>';
-            redirect("leave/Holidays", 'refresh');
         } else {
             redirect(base_url(), 'refresh');
         }
@@ -640,8 +600,7 @@ class Leave extends CI_Controller
             //         );
             // $success = $this->leave_model->UpdteEarnValue($employeeId,$data);  
             if ($success)
-                echo '<script>alert("Updated Successfully")</script>';
-                redirect("leave/Holidays", 'refresh');
+                echo "Updated successfully";
             else echo "Updation Failed";
             //     } else {
             //     //If not taken yet
@@ -782,13 +741,8 @@ class Leave extends CI_Controller
                 );
                 $this->project_model->insertAttendanceByFieldVisitReturn($data);
             }
-
-            echo '<script>alert("Successfully Added")</script>';
-            redirect("leave/Holidays", 'refresh');
-
               echo '<script>alert("Successfully Added.") </script>';
                 redirect(base_url(), 'refresh');
-
         }
     }
     public function Update_Earn_Leave_Only()
@@ -802,7 +756,6 @@ class Leave extends CI_Controller
             'hour' => $hour
         );
         $success = $this->leave_model->UpdteEarnValue($emid, $data);
-        echo '<script>alert("Successfully Added")</script>';
-        redirect("leave/Holidays", 'refresh');
+        echo "Successfully Updated.";
     }
 }

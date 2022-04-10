@@ -47,14 +47,8 @@ class Organization extends CI_Controller {
         $data = array('dep_name' => $dep);
         $success = $this->organization_model->Add_Department($data);
         $this->session->set_flashdata('feedback','Successfully Added');
-
-           echo "Successfully Added";
-           echo '<script>alert("Successfully Added")</script>';
-           redirect("organization/Department", 'refresh');
-
              echo '<script>alert("Successfully Added.") </script>';
                 redirect(base_url(), 'refresh');
-
        }
         }
     else{
@@ -88,13 +82,8 @@ class Organization extends CI_Controller {
         $data =  array('dep_name' => $department );
         $this->organization_model->Update_Department($id, $data);
         #$this->session->set_flashdata('feedback','Updated Successfully');
-
-        echo '<script>alert("Successfully Added")</script>';
-        redirect("organization/Department", 'refresh');
-
           echo '<script>alert("Successfully Added.") </script>';
                 redirect(base_url(), 'refresh');
-
         }
     else{
 		redirect(base_url() , 'refresh');
@@ -122,13 +111,8 @@ class Organization extends CI_Controller {
             $data = array();
             $data = array('des_name' => $des);
             $success = $this->organization_model->Add_Designation($data);
-
-            echo '<script>alert("Successfully Added")</script>';
-            redirect("organization/Designation", 'refresh');
-
               echo '<script>alert("Successfully Added.") </script>';
                 redirect(base_url(), 'refresh');
-
         }
         }
     else{
@@ -161,13 +145,8 @@ class Organization extends CI_Controller {
         $designation = $this->input->post('designation');
         $data =  array('des_name' => $designation );
         $this->organization_model->Update_Designation($id, $data);
-
-        echo '<script>alert("Successfully Updated")</script>';
-        redirect("organization/Designation", 'refresh');
-
           echo '<script>alert("Successfully Updated.") </script>';
                 redirect(base_url(), 'refresh');
-
         }
     else{
 		redirect(base_url() , 'refresh');

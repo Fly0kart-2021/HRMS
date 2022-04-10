@@ -152,8 +152,7 @@ if(!$this->input->post('tsid'))
        
         $this->db->where('id', $id);
    if($this->db->delete('timesheet'))
-   echo '<script>alert("Timesheet Deleted Successfully")</script>';
-   redirect("timesheet/fill_timesheet", 'refresh');
+   echo "Timesheet Deleted Successfully";
    
 
     }
