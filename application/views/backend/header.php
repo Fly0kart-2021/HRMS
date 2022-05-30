@@ -67,7 +67,7 @@
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="<?php echo base_url(); ?>"><b>
-                            <img src="<?php echo base_url(); ?>assets/images/logo-icon.png" alt="DRI" class="DRI-logo" style="width:50px;" />
+                            <!-- <img src="<?php echo base_url(); ?>assets/images/logo-icon.png" alt="DRI" class="DRI-logo" style="width:50px;" /> -->
                         </b>
                         <!-- Logo text --><span>
                             <img src="<?php echo base_url(); ?>assets/images/<?php echo $settingsvalue->sitelogo; ?>" alt="The TechCubes" class="dark-logo" height="60px" width="100px" />
@@ -251,30 +251,4 @@
 
 
 
-        <!-- GetButton.io widget -->
-        <script type="text/javascript">
-            (function() {
-                var options = {
-                    whatsapp: "8707402649", // WhatsApp number
-                    call_to_action: "Message us", // Call to action
-                    position: "right", // Position may be 'right' or 'left'
-                };
-                var proto = document.location.protocol,
-                    host = "getbutton.io",
-                    url = proto + "//static." + host;
-                var s = document.createElement('script');
-                s.type = 'text/javascript';
-                s.async = true;
-                s.src = url + '/widget-send-button/js/init.js';
-                s.onload = function() {
-                    WhWidgetSendButton.init(host, proto, options);
-                };
-                var x = document.getElementsByTagName('script')[0];
-                x.parentNode.insertBefore(s, x);
-                var getbtn = document.getElementsByClassName('wh-widget-send-button-get-button');
-                for (i = 0; i < getbtn.length; i++) {
-                    getbtn[i].style.display = "none";
-                }
-            })();
-        </script>
-        <!-- /GetButton.io widget -->
+      
